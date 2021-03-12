@@ -1,0 +1,7 @@
+parameter: "this is the base parameter"
+other: 5
+id: 10
+under_score: 50
+nested:
+  name: John
+  age: 30
