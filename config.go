@@ -4,17 +4,19 @@ import (
 	"go.uber.org/config"
 )
 
-type environment string
+// Environment is an enum for the location
+// of the config file.
+type Environment string
 
 const (
-	EnvironmentBase        environment = "base.yaml"
-	EnvironmentDevelopment environment = "development.yaml"
-	EnvironmentProduction  environment = "production.yaml"
-	EnvironmentTest        environment = "test.yaml"
+	EnvironmentBase        Environment = "base.yaml"
+	EnvironmentDevelopment Environment = "development.yaml"
+	EnvironmentProduction  Environment = "production.yaml"
+	EnvironmentTest        Environment = "test.yaml"
 )
 
 // Populate the target struct from YAML configs.
-func Populate(target interface{}, dir string, env environment) error {
+func Populate(target interface{}, dir string, env Environment) error {
 	var opts []config.YAMLOption
 
 	if env != EnvironmentBase {
